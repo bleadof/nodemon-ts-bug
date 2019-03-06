@@ -1,0 +1,29 @@
+{
+  "name": "nodemon-ts-bug",
+  "version": "0.0.1",
+  "description": "",
+  "main": "src/hello-world.ts",
+  "author": "",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "type-check": "tsc --noEmit",
+    "type-check:watch": "yarn type-check -- --watch",
+    "run": "babel-node --extensions \".ts\" src/hello-world.ts",
+    "watch-run": "nodemon --watch . --watch src --exec yarn run run",
+    "start": "concurrently -p \"[{name}]\" -n \"APP,TSC\" -c \"bgMagenta.bold,bgBlue.bold\" \"yarn watch-run\" \"yarn type-check:watch\""
+  },
+  "dependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-proposal-class-properties": "^7.3.4",
+    "@babel/plugin-proposal-object-rest-spread": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/preset-typescript": "^7.3.3",
+    "@types/node": "^11.10.4",
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.10",
+    "typescript": "^3.3.3333"
+  }
+}
